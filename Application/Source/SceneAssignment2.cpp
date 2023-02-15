@@ -204,8 +204,8 @@ void SceneAssignment2::Init()
 	meshList[GEO_LAMP] = MeshBuilder::GenerateOBJ("Human", "OBJ//lamp.obj");
 	meshList[GEO_LAMP]->textureID = LoadTGA("Image//lamp.tga");
 
-	meshList[GEO_BUILDING] = MeshBuilder::GenerateOBJ("Human", "OBJ//building.obj");
-	meshList[GEO_BUILDING]->textureID = LoadTGA("Image//building.tga");
+	meshList[GEO_WHEEL] = MeshBuilder::GenerateOBJ("Human", "OBJ//wheel.obj");
+	meshList[GEO_WHEEL]->textureID = LoadTGA("Image//wheel.tga");
 
 	meshList[GEO_BARRIER] = MeshBuilder::GenerateOBJ("Human", "OBJ//Barrier.obj");
 	meshList[GEO_BARRIER]->textureID = LoadTGA("Image//Barrier.tga");
@@ -422,9 +422,9 @@ void SceneAssignment2::Init()
 	meshList[GEO_LAMP]->material.kAmbient.Set(0,0,0);
 	meshList[GEO_LAMP]->material.kDiffuse.Set(1, 1, 1);
 	meshList[GEO_LAMP]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_BUILDING]->material.kAmbient.Set(0,0,0);
-	meshList[GEO_BUILDING]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_BUILDING]->material.kSpecular.Set(0, 0, 0);
+	meshList[GEO_WHEEL]->material.kAmbient.Set(0,0,0);
+	meshList[GEO_WHEEL]->material.kDiffuse.Set(1, 1, 1);
+	meshList[GEO_WHEEL]->material.kSpecular.Set(0, 0, 0);
 	meshList[GEO_PLANE]->material.kAmbient.Set(0,0,0);
 	meshList[GEO_PLANE]->material.kDiffuse.Set(1, 1, 1);
 	meshList[GEO_PLANE]->material.kSpecular.Set(0, 0, 0);
@@ -845,7 +845,7 @@ void SceneAssignment2::Render()
 
 		//car
 		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(2, 0, 0), glm::vec3(1, 1, 3), 0,false);
+		spawnCollider(glm::vec3(2, 0, 0), glm::vec3(1, 1, 3), 0, false);
 		modelStack.Translate(2, 0, 0);
 		modelStack.Rotate(-90, 0, 1, 0);
 		modelStack.Scale(0.5, 0.5, 0.5);
@@ -982,10 +982,10 @@ void SceneAssignment2::Render()
 
 
 		modelStack.PushMatrix();
-		modelStack.Translate(0, 0, -20);
+		modelStack.Translate(0, -25, -20);
 		modelStack.Rotate(90, 0, 1, 0);
-
-		RenderMesh(meshList[GEO_BUILDING], true);
+		modelStack.Scale(100,100,100);
+		RenderMesh(meshList[GEO_WHEEL], true);
 		modelStack.PopMatrix();
 
 		modelStack.PushMatrix();
