@@ -1,15 +1,28 @@
-﻿  Application.cpp
-C:\Users\Asus\Desktop\ComputerGraphics\DX1111-OPENGL-FRAMEWORK\Application\Source\Application.h(5,10): fatal error C1083: Cannot open include file: 'timer.h': No such file or directory
+﻿  AltAzCamera.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\AltAzCamera.h(3,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
+  Application.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\Application.h(5,10): fatal  error C1083: Cannot open include file: 'timer.h': No such file or directory
   Camera.cpp
-C:\Users\Asus\Desktop\ComputerGraphics\DX1111-OPENGL-FRAMEWORK\Application\Source\Camera.h(4,10): fatal error C1083: Cannot open include file: 'Vector3.h': No such file or directory
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\Camera.h(3,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
+  CameraFPS.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\Camera.h(3,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
+  gameObject.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\gameObject.h(3,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
+  LoadOBJ.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\LoadOBJ.h(5,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
+  LoadTGA.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\LoadTGA.cpp(4,10): fatal  error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
   main.cpp
-C:\Users\Asus\Desktop\ComputerGraphics\DX1111-OPENGL-FRAMEWORK\Application\Source\Application.h(5,10): fatal error C1083: Cannot open include file: 'timer.h': No such file or directory
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\Application.h(5,10): fatal  error C1083: Cannot open include file: 'timer.h': No such file or directory
+  MatrixStack.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\MatrixStack.h(5,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
   Mesh.cpp
-C:\Users\Asus\Desktop\ComputerGraphics\DX1111-OPENGL-FRAMEWORK\Application\Source\Mesh.cpp(3,10): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\Mesh.h(3,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
   MeshBuilder.cpp
-C:\Users\Asus\Desktop\ComputerGraphics\DX1111-OPENGL-FRAMEWORK\Application\Source\MeshBuilder.cpp(2,10): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Scene1.cpp
-C:\Users\Asus\Desktop\ComputerGraphics\DX1111-OPENGL-FRAMEWORK\Application\Source\Camera.h(4,10): fatal error C1083: Cannot open include file: 'Vector3.h': No such file or directory
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\Mesh.h(3,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
+  MouseController.cpp
+  SceneAssignment2.cpp
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\Mesh.h(3,10): fatal  error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
   shader.cpp
-C:\Users\Asus\Desktop\ComputerGraphics\DX1111-OPENGL-FRAMEWORK\Application\Source\shader.cpp(12,10): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\shader.cpp(12,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
   Generating Code...
