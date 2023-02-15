@@ -38,6 +38,7 @@ public:
 		GEO_DOOR,
 		GEO_COLLIDER,
 		GEO_WALL,
+		GEO_WHEEL,
 		GEO_FLOOR,
 		GEO_CRATE,
 		GEO_C4,

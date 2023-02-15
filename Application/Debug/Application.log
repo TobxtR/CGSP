@@ -1,13 +1,10 @@
-﻿  SceneAssignment2.cpp
+﻿  Application.cpp
+  main.cpp
+  SceneAssignment2.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
 C:\Users\hanti\Documents\GitHub\CGSP\glfw\include\GLFW\glfw3.h(104,1): message : see previous definition of 'APIENTRY'
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(164,93): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(207,11): error C2065: 'GEO_WHEEL': undeclared identifier
-C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(208,11): error C2065: 'GEO_WHEEL': undeclared identifier
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(322,22): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(425,11): error C2065: 'GEO_WHEEL': undeclared identifier
-C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(426,11): error C2065: 'GEO_WHEEL': undeclared identifier
-C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(427,11): error C2065: 'GEO_WHEEL': undeclared identifier
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(629,20): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(635,19): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(644,24): warning C4305: '=': truncation from 'double' to 'float'
@@ -32,7 +29,6 @@ C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(935
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(954,37): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(960,36): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(964,34): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(988,23): error C2065: 'GEO_WHEEL': undeclared identifier
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(993,39): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(994,33): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(1027,35): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -88,3 +84,5 @@ C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(131
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(1312,37): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(1332,36): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\hanti\Documents\GitHub\CGSP\Application\Source\SceneAssignment2.cpp(1333,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+  Application.vcxproj -> C:\Users\hanti\Documents\GitHub\CGSP\Debug\Application.exe
