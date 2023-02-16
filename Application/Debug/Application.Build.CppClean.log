@@ -1,34 +1,25 @@
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\vc143.pdb
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\vc143.idb
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\shader.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\scenegui.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\mousecontroller.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\meshbuilder.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\mesh.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\matrixstack.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\main.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\loadtga.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\loadobj.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\camerafps.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\camera.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\altazcamera.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\scenelightsource.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\scenemodel.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\sceneassignment2.obj
-c:\users\tobxtr\source\repos\dxgl updated\debug\application.exe
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.ilk
-c:\users\tobxtr\source\repos\dxgl updated\debug\application.pdb
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\sceneblending.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\scenegalaxy.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\scenelight.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\sceneskybox.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\scenetexture.obj
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\vc142.idb
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\vc142.pdb
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.tlog\cl.command.1.tlog
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.tlog\cl.read.1.tlog
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.tlog\cl.write.1.tlog
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.tlog\link.command.1.tlog
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.tlog\link.read.1.tlog
-c:\users\tobxtr\source\repos\dxgl updated\application\debug\application.tlog\link.write.1.tlog
+c:\users\hanti\documents\github\cgsp\application\debug\vc143.pdb
+c:\users\hanti\documents\github\cgsp\application\debug\vc143.idb
+c:\users\hanti\documents\github\cgsp\application\debug\shader.obj
+c:\users\hanti\documents\github\cgsp\application\debug\sceneassignment2.obj
+c:\users\hanti\documents\github\cgsp\application\debug\mousecontroller.obj
+c:\users\hanti\documents\github\cgsp\application\debug\meshbuilder.obj
+c:\users\hanti\documents\github\cgsp\application\debug\mesh.obj
+c:\users\hanti\documents\github\cgsp\application\debug\matrixstack.obj
+c:\users\hanti\documents\github\cgsp\application\debug\main.obj
+c:\users\hanti\documents\github\cgsp\application\debug\loadtga.obj
+c:\users\hanti\documents\github\cgsp\application\debug\loadobj.obj
+c:\users\hanti\documents\github\cgsp\application\debug\gameobject.obj
+c:\users\hanti\documents\github\cgsp\application\debug\camerafps.obj
+c:\users\hanti\documents\github\cgsp\application\debug\camera.obj
+c:\users\hanti\documents\github\cgsp\application\debug\altazcamera.obj
+c:\users\hanti\documents\github\cgsp\application\debug\application.obj
+c:\users\hanti\documents\github\cgsp\debug\application.exe
+c:\users\hanti\documents\github\cgsp\application\debug\application.ilk
+c:\users\hanti\documents\github\cgsp\debug\application.pdb
+c:\users\hanti\documents\github\cgsp\application\debug\application.tlog\cl.command.1.tlog
+c:\users\hanti\documents\github\cgsp\application\debug\application.tlog\cl.read.1.tlog
+c:\users\hanti\documents\github\cgsp\application\debug\application.tlog\cl.write.1.tlog
+c:\users\hanti\documents\github\cgsp\application\debug\application.tlog\link.command.1.tlog
+c:\users\hanti\documents\github\cgsp\application\debug\application.tlog\link.read.1.tlog
+c:\users\hanti\documents\github\cgsp\application\debug\application.tlog\link.write.1.tlog

@@ -15,6 +15,7 @@
 #include "MouseController.h"
 
 #include "SceneAssignment2.h"
+#include "SceneTest.h"
 
 
 
@@ -139,7 +140,7 @@ void Application::Run()
 {
 	
 	
-		Scene* scene = new SceneAssignment2();
+		Scene* scene = new SceneTest();
 		scene->Init();
 
 

@@ -13,11 +13,9 @@
 #include <GLFW/glfw3.h>
 
 #include "shader.hpp"
-#include "Application.h"
 #include "MeshBuilder.h"
 #include "KeyboardController.h"
 #include "LoadTGA.h"
-
 #include "MouseController.h"
 #include <iostream>
 
@@ -413,15 +411,6 @@ void SceneAssignment2::Init()
 	meshList[GEO_TREE]->material.kAmbient.Set(0,0,0);
 	meshList[GEO_TREE]->material.kDiffuse.Set(1, 1, 1);
 	meshList[GEO_TREE]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_CAR]->material.kAmbient.Set(0,0,0);
-	meshList[GEO_CAR]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_CAR]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_HELI]->material.kAmbient.Set(0,0,0);
-	meshList[GEO_HELI]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_HELI]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_LAMP]->material.kAmbient.Set(0,0,0);
-	meshList[GEO_LAMP]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_LAMP]->material.kSpecular.Set(0, 0, 0);
 	meshList[GEO_WHEEL]->material.kAmbient.Set(0,0,0);
 	meshList[GEO_WHEEL]->material.kDiffuse.Set(1, 1, 1);
 	meshList[GEO_WHEEL]->material.kSpecular.Set(0, 0, 0);
@@ -431,37 +420,6 @@ void SceneAssignment2::Init()
 	meshList[GEO_PLAYER]->material.kAmbient.Set(0,0,0);
 	meshList[GEO_PLAYER]->material.kDiffuse.Set(1, 1, 1);
 	meshList[GEO_PLAYER]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_VAN]->material.kAmbient.Set(0,0,0);
-	meshList[GEO_VAN]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_VAN]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_RUSTY]->material.kAmbient.Set(0,0,0);
-	meshList[GEO_RUSTY]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_RUSTY]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_BUTTON]->material.kAmbient.Set(0, 0, 0);
-	meshList[GEO_BUTTON]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_BUTTON]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_DOOR]->material.kAmbient.Set(0, 0, 0);
-	meshList[GEO_DOOR]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_DOOR]->material.kSpecular.Set(0, 0, 0);
-
-	meshList[GEO_WALL]->material.kAmbient.Set(0, 0, 0);
-	meshList[GEO_WALL]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_WALL]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_FLOOR]->material.kAmbient.Set(0, 0, 0);
-	meshList[GEO_FLOOR]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_FLOOR]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_CRATE]->material.kAmbient.Set(0, 0, 0);
-	meshList[GEO_CRATE]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_CRATE]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_C4]->material.kAmbient.Set(0, 0, 0);
-	meshList[GEO_C4]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_C4]->material.kSpecular.Set(0, 0, 0);
-	meshList[GEO_CELLING]->material.kAmbient.Set(0, 0, 0);
-	meshList[GEO_CELLING]->material.kDiffuse.Set(1, 1, 1);
-	meshList[GEO_CELLING]->material.kSpecular.Set(0, 0, 0);
-
-
-	doorMove = 0;
 }
 
 void SceneAssignment2::Update(double dt)
@@ -524,175 +482,14 @@ void SceneAssignment2::Update(double dt)
 		float d1 = fabs(playerPosition.z - collider[i].pos.z);
 		float d2 = fabs(playerPosition.x - collider[i].pos.x);
 		//scene 1
-		if (scene == 1)
+		if (d1 <= (collider[i].scale.z / 2) && d2 <= (collider[i].scale.x / 2))
 		{
-			//door
-			if (i == 7)
-			{
-				//for objective
-				if (d1 <= (collider[i].scale.z / 2) && d2 <= (collider[i].scale.x / 2))
-				{
-					render_button = true;
-					if (KeyboardController::GetInstance()->IsKeyPressed('E'))
-					{
-						doorOpen = true;
-					}
-					
-				}
-				else
-				{
-					render_button = false;
-				}
 
-			}
-			//lamp
-			else if (i == 8)
-			{
-				//lamp on off
-				if (d1 <= (collider[i].scale.z / 2) && d2 <= (collider[i].scale.x / 2))
-				{
-					render_lamptxt = true;
-					if (KeyboardController::GetInstance()->IsKeyPressed('E'))
-					{
-						if (light[0].power == 1)
-						{
-							light[0].power = 0;
-						}
-						else
-						{
-							light[0].power = 1;
-						}
-						glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
-					}
-					
-
-				}
-				else
-				{
-					render_lamptxt = false;
-				}
-			}
-			else if (i >= 0 && i < 10)
-			{
-				//for collider
-				if (d1 <= (collider[i].scale.z / 2) && d2 <= (collider[i].scale.x / 2))
-				{
-
-					playerPosition = glm::vec3(0,0,0);
-				}
-			}
-		}
-		else
-		{
-			if (i >= 10 && i < numofcol)
-			{
-				if (i == 25)
-				{
-					if (d1 <= (collider[i].scale.z / 2) && d2 <= (collider[i].scale.x / 2))
-					{
-						bomb_diffusable = true;
-						//difuse bomb
-						if (KeyboardController::GetInstance()->IsKeyPressed('E'))
-						{
-							bomb_diffused = true;
-						}
-
-					}
-					else
-					{
-						bomb_diffusable = false;
-					}
-				}
-				else
-				{
-					//for collider
-					if (d1 <= (collider[i].scale.z / 2) && d2 <= (collider[i].scale.x / 2))
-					{
-
-						playerPosition = glm::vec3(-1.4, 0, 4.2);
-					}
-				}
-				
-			}
+			playerPosition = glm::vec3(0,0,0);
 		}
 	}
-	if (doorOpen == true)
-	{
-		
-		if (doorMove >= 2.5)
-		{
-			doorMove = 2.5;
-			scene = 2;
-		}
-		else
-		{
-			doorMove += 0.5 * dt;
-		}
-	}
-	//bomb ticking animation
-	if (scene == 2 && condition == 0)
-	{
-		bomb_timer += 1 * dt;
-		if (bomb_timer >= 0 && bomb_timer < 3)
-		{
-			light[5].power = 0;
-			glUniform1f(m_parameters[U_LIGHT5_POWER], light[5].power);
-		}
-		if (bomb_timer >= 3 && bomb_timer < 4)
-		{
-			//beep
-			light[5].power = 0.3;
-			glUniform1f(m_parameters[U_LIGHT5_POWER], light[5].power);
-			
-		}
-		if (bomb_timer >= 4)
-		{
-			bomb_timer = 0;
-		}
-		//end
-		
-		//bomb countdown starts
-		if (bomb_diffused == false && condition == 0)
-		{
-			bomb_countdown -= 1 * (dt);
-			if (bomb_countdown < 0)
-			{
-				condition = 2;
-			}
-		}
-		else if (bomb_diffused == true && condition == 0)
-		{
-			condition = 1;
-		}
-		//win
-		if (condition == 1)
-		{
-			bomb_countdown = bomb_countdown;
-		}
-		//lose
-		else if (condition == 2)
-		{
-			bomb_countdown = bomb_countdown;
-		}
-	}
-	if (scene == 1)
-	{
-		police_animation += 1 * dt;
-		if (police_animation >= 1 && police_animation < 2)
-		{
-			light[3].color.Set(1, 0, 0);
-			glUniform3fv(m_parameters[U_LIGHT3_COLOR], 1, &light[3].color.r);
-		}
-		if (police_animation >= 2 && police_animation < 3)
-		{
-			light[3].color.Set(0, 0, 1);
-			glUniform3fv(m_parameters[U_LIGHT3_COLOR], 1, &light[3].color.r);
-		}
-		if (police_animation >= 3)
-		{
-			police_animation = 1;
-		}
-	}
+	
+	
 
 }
 
@@ -805,8 +602,14 @@ void SceneAssignment2::Render()
 		// 
 		//Ground
 		modelStack.PushMatrix();
-
 		modelStack.Translate(0, 0, 0);
+
+		modelStack.PushMatrix();
+		modelStack.Translate(0, -25, -20);
+		modelStack.Rotate(90, 0, 1, 0);
+		modelStack.Scale(100, 100, 100);
+		RenderMesh(meshList[GEO_WHEEL], true);
+		modelStack.PopMatrix();
 
 		modelStack.PushMatrix();
 		//road
@@ -829,11 +632,6 @@ void SceneAssignment2::Render()
 		modelStack.PopMatrix();
 
 		modelStack.PushMatrix();
-
-
-
-
-
 		modelStack.PopMatrix();
 		modelStack.PushMatrix();
 		modelStack.Translate(0, 0.001, 0);
@@ -843,172 +641,7 @@ void SceneAssignment2::Render()
 		RenderMesh(meshList[GEO_ROADEND], true);
 		modelStack.PopMatrix();
 
-		//car
 		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(2, 0, 0), glm::vec3(1, 1, 3), 0, false);
-		modelStack.Translate(2, 0, 0);
-		modelStack.Rotate(-90, 0, 1, 0);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		RenderMesh(meshList[GEO_CAR], true);
-		modelStack.PopMatrix();
-		//car 2
-		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(-2, 0, -0.2), glm::vec3(1, 1, 3), 2, false);
-		modelStack.Translate(-2, 0, -0.4);
-		modelStack.Rotate(90, 0, 1, 0);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		RenderMesh(meshList[GEO_CAR], true);
-		modelStack.PopMatrix();
-
-		//barrier
-		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(0, 0, 1.5), glm::vec3(10, 1, 0.3), 1, false);
-		modelStack.Translate(-2, 0, 1.5);
-		modelStack.Rotate(-90.f, 0, 1, 0);
-		modelStack.Scale(0.3, 0.3, 0.3);
-		RenderMesh(meshList[GEO_BARRIER], true);
-		modelStack.PopMatrix();
-
-		//barrier
-		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(-3.5, 0, -2), glm::vec3(3, 0.3, 0.3), 3, false);
-		modelStack.Translate(-3.5, 0, -2);
-		modelStack.Rotate(-90.f, 0, 1, 0);
-		modelStack.Scale(0.3, 0.3, 0.3);
-		RenderMesh(meshList[GEO_BARRIER], true);
-		modelStack.PopMatrix();
-
-		//heli
-		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(3, 0, -4), glm::vec3(1, 1, 5), 4, false);
-		modelStack.Translate(3, 0, -3);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		modelStack.Rotate(90.f, 0, 1, 0);
-		RenderMesh(meshList[GEO_HELI], true);
-		modelStack.PopMatrix();
-
-		//barrier
-		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(-4, 0, -8.5), glm::vec3(0.3, 0.3, 13), 5, false);
-
-		modelStack.Translate(-4, 0, -3.5);
-		modelStack.Scale(0.3, 0.3, 0.3);
-		RenderMesh(meshList[GEO_BARRIER], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(-4.2, 0, -8);
-		modelStack.Scale(0.3, 0.3, 0.3);
-		RenderMesh(meshList[GEO_BARRIER], true);
-		modelStack.PopMatrix();
-
-
-		modelStack.PushMatrix();
-		modelStack.Translate(-4.5, 0, -5.5);
-		modelStack.Rotate(76, 0, 1, 0);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		RenderMesh(meshList[GEO_CAR], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(2.3, 0, 4);
-		modelStack.Rotate(24, 0, 1, 0);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		RenderMesh(meshList[GEO_VAN], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(0, 0, 4.3);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		RenderMesh(meshList[GEO_VAN], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(-4.1, 0, -10.5);
-		modelStack.Rotate(12, 0, 1, 0);
-		modelStack.Scale(0.3, 0.3, 0.3);
-		RenderMesh(meshList[GEO_BARRIER], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(-4, 0, -13);
-		modelStack.Scale(0.3, 0.3, 0.3);
-		RenderMesh(meshList[GEO_BARRIER], true);
-		modelStack.PopMatrix();
-
-		spawnCollider(glm::vec3(3, 0, -9), glm::vec3(1, 1, 13), 6, false);
-
-		modelStack.PushMatrix();
-		modelStack.Translate(3, 0, -13.5);
-		modelStack.Rotate(180, 0, 1, 0);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		RenderMesh(meshList[GEO_RUSTY], true);
-		modelStack.PopMatrix();
-
-		for (int i = 0; i < 3; i++)
-		{
-			modelStack.PushMatrix();
-			switch (i)
-			{
-			case 0:
-				modelStack.Translate(3.2, 0, -11);
-				break;
-			case 1:
-				modelStack.Translate(3, 0, -8);
-				break;
-			case 2:
-				modelStack.Translate(3.1, 0, -6);
-				break;
-			}
-
-			modelStack.Scale(0.3, 0.3, 0.3);
-			RenderMesh(meshList[GEO_BARRIER], true);
-			modelStack.PopMatrix();
-		}
-
-		modelStack.PushMatrix();
-		modelStack.Translate(0, 15, -10);
-		modelStack.Rotate(-90, 0, 1, 0);
-		modelStack.Scale(0.5, 0.5, 0.5);
-		RenderMesh(meshList[GEO_HELI], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(-2.8, 1, -13), glm::vec3(1, 0.3, 1), 7, false);
-		spawnCollider(glm::vec3(0,0,0), glm::vec3(2, 0.3, 2), 8, false);
-		modelStack.Translate(1.5, 0, 1);
-		RenderMesh(meshList[GEO_LAMP], true);
-		modelStack.PopMatrix();
-
-
-		modelStack.PushMatrix();
-		modelStack.Translate(0, -25, -20);
-		modelStack.Rotate(90, 0, 1, 0);
-		modelStack.Scale(100,100,100);
-		RenderMesh(meshList[GEO_WHEEL], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-
-		modelStack.Translate(-2.8, 1, -13.15);
-		modelStack.Scale(0.2, 0.2, 0.2);
-		modelStack.Rotate(90, 1, 0, 0);
-		RenderMesh(meshList[GEO_BUTTON], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(-1, doorMove, -14.5);
-		modelStack.Rotate(90, 0, 1, 0);
-		RenderMesh(meshList[GEO_DOOR], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(-1, 1, -15);
-		modelStack.Scale(3.5, 3, 0.5);
-		RenderMesh(meshList[GEO_COLLIDER], true);
-		modelStack.PopMatrix();
-
-		modelStack.PopMatrix();
 		modelStack.Translate(0, 0, -8.5f);
 		modelStack.Rotate(-90.f, 1, 0, 0);
 
@@ -1061,293 +694,13 @@ void SceneAssignment2::Render()
 			modelStack.PopMatrix();
 		}
 		
-		if (renderLightPos == true)
-		{
-			modelStack.PushMatrix();
-			modelStack.Translate(light[1].position.x, light[1].position.y, light[1].position.z);
-			RenderMesh(meshList[GEO_SPHERE], true);
-			modelStack.PopMatrix();
-
-		}
-		
-		//UI elements must be last
-		modelStack.PushMatrix();
-		modelStack.Translate(-2.9, 1.3, -13.15);
-		modelStack.Scale(0.1, 0.1, 0.1);
-		RenderText(meshList[GEO_TEXT], "OPEN", Color(0, 1, 0));
-		modelStack.PopMatrix();
-
-		RenderTextOnScreen(meshList[GEO_TEXT], "Objective:", Color(0, 1, 0), 40, 0, 45);
-		if (doorOpen == true)
-		{
-			RenderTextOnScreen(meshList[GEO_TEXT], "Awaiting order...", Color(0, 1, 0), 40, 0, 5);
-		}
-		else
-		{
-			RenderTextOnScreen(meshList[GEO_TEXT], "Enter the building", Color(0, 1, 0), 40, 0, 5);
-		}
-		if (render_button == true)
-		{
-			RenderTextOnScreen(meshList[GEO_TEXT], "Press E to open the door", Color(0, 1, 0), 40, 200, 75);
-		}
-		if (render_lamptxt == true)
-		{
-			modelStack.PushMatrix();
-			RenderTextOnScreen(meshList[GEO_TEXT], "Press E to turn off the lamp", Color(0, 1, 0), 40, 125, 75);
-			modelStack.PopMatrix();
-		}
-		
 		
 	}
 	//scene 2
 	else if (scene == 2)
 	{
 
-		//teleport to new spawn
-		if (doorOpen == true)
-		{
-			camera.firstperson = true;
-			playerPosition = glm::vec3(-1.4, 0, 4.2);
-			doorOpen = false;
-		}
-		//loop all scene 1 light and disable them
-		for (int i = 0; i < 4; i++)
-		{
-			light[i].power = 0;
-			glUniform1f(m_parameters[U_LIGHT0_POWER + (i * 11)], light[i].power);
-		}
-		//enable all scene 2 light
-		if (scene2loaded == false)
-		{
-			for (int i = 4; i < 6; i++)
-			{
-				switch (i)
-				{
-				case 4:
-					light[i].power = 0.3;
-					break;
-				case 5:
-					light[i].power = 0.1;
-					break;
-				}
-
-				glUniform1f(m_parameters[U_LIGHT0_POWER + (i * 11)], light[i].power);
-			}
-			scene2loaded = true;
-		}
 		
-
-
-
-		modelStack.PushMatrix();
-		modelStack.Translate(0, 0, 0);
-		modelStack.Scale(1, 1, 1);
-		modelStack.Rotate(-90.f, 1, 0, 0);
-		RenderMesh(meshList[GEO_FLOOR], true);
-		modelStack.PopMatrix();
-
-		modelStack.PushMatrix();
-		modelStack.Translate(0, 4, 0);
-		modelStack.Scale(1, 1, 1);
-		modelStack.Rotate(90, 1, 0, 0);
-		RenderMesh(meshList[GEO_CELLING], true);
-		modelStack.PopMatrix();
-		for (int i = 0; i < 4; i++)
-		{
-			modelStack.PushMatrix();
-			switch (i)
-			{
-			case 0:
-				//front
-				modelStack.Translate(0, 3, -5);
-
-				break;
-			case 1:
-				//
-				modelStack.Translate(-5, 3, 0);
-				modelStack.Rotate(90,0, 1, 0);
-				break;
-			case 2:
-				modelStack.Translate(0, 3, 5);
-				modelStack.Rotate(180, 0, 1,0);
-				break;
-			case 3:
-				modelStack.Translate(5, 3, 0);
-				modelStack.Rotate(270, 0,1, 0);
-				break;
-			}
-			modelStack.Scale(11, 6, 11);
-			RenderMesh(meshList[GEO_WALL], true);
-			modelStack.PopMatrix();
-		}
-
-		for (int i = 0; i < 16; i++)
-		{
-			modelStack.PushMatrix();
-			switch (i)
-			{
-			case 0:
-				spawnCollider(glm::vec3(-1.4, 0, 2.8), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-1.4, 0, 2.8);
-				modelStack.PushMatrix();
-				modelStack.Translate(0,1.4,0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				break;
-			case 1:
-				spawnCollider(glm::vec3(-4.2, 0, 1.4), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-4.2, 0,1.4);
-				break;
-			case 2:
-				spawnCollider(glm::vec3(1.4, 0, 1.4), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(1.4, 0, 1.4);
-				break;
-			case 3:
-				spawnCollider(glm::vec3(-4.2, 0, 0), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-4.2, 0, 0);
-				break;
-			case 4:
-				spawnCollider(glm::vec3(-2.8, 0, 0), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-2.8, 0, 0);
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 1.4, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 2.8, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				break;
-			case 5:
-				spawnCollider(glm::vec3(-1.4, 0, 0), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-1.4, 0, 0);
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 1.4, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				break;
-			case 6:
-				spawnCollider(glm::vec3(1.4, 0, 0), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(1.4, 0, 0);
-				break;
-			case 7:
-				spawnCollider(glm::vec3(1.4, 0, -1.4), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(1.4, 0, -1.4);
-				break;
-			case 8:
-				spawnCollider(glm::vec3(-4.2, 0, -2.8), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-4.2, 0, -2.8);
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 1.4, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				break;
-			case 9:
-				spawnCollider(glm::vec3(-1.4, 0, -2.8), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-1.4, 0, -2.8);
-				break;
-			case 10:
-				spawnCollider(glm::vec3(0, 0, -4.2), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(0, 0, -4.2);
-				break;
-			case 11:
-				spawnCollider(glm::vec3(2.8, 0, -4.2), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(2.8, 0, -4.2);
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 1.4, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 2.8, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				break;
-			case 12:
-				spawnCollider(glm::vec3(-2.8, 0, 4.2), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(-2.8, 0, 4.2);
-				break;
-			case 13:
-				spawnCollider(glm::vec3(1.4, 0, 4.2), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(1.4, 0, 4.2);
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 1.4, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				break;
-			case 14:
-				spawnCollider(glm::vec3(4.2, 0, 1.4), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(4.2, 0, 1.4);
-				break;
-			case 15:
-				spawnCollider(glm::vec3(4.2, 0, -1.4), glm::vec3(1.5, 1.5, 1.5), 10 + i, false);
-				modelStack.Translate(4.2, 0, -1.4);
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 1.4, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				modelStack.PushMatrix();
-				modelStack.Translate(0, 2.8, 0);
-				modelStack.Scale(0.7, 0.7, 0.7);
-				RenderMesh(meshList[GEO_CRATE], true);
-				modelStack.PopMatrix();
-				break;
-			}
-			modelStack.Scale(0.7, 0.7, 0.7);
-			RenderMesh(meshList[GEO_CRATE], true);
-			modelStack.PopMatrix();
-		}
-
-		modelStack.PushMatrix();
-		spawnCollider(glm::vec3(-4.2, 0, -4.2), glm::vec3(1.5, 1.5, 1.5), 25, false);
-		modelStack.Translate(-4.2, 0, -4.2);
-		modelStack.Scale(0.001,0.001,0.001);
-		RenderMesh(meshList[GEO_C4], true);
-		modelStack.PopMatrix();
-
-		//side wall collider
-		spawnCollider(glm::vec3(0, 0, -5.5), glm::vec3(10, 1.5,1), 26, false);
-		spawnCollider(glm::vec3(-5.5, 0, 0), glm::vec3(1, 1.5, 10), 27, false);
-		spawnCollider(glm::vec3(0, 0, 5.5), glm::vec3(10, 1.5, 1), 28, false);
-		spawnCollider(glm::vec3(5.5, 0, 0), glm::vec3(1, 1.5, 10), 29, false);
-		if (bomb_diffusable == true)
-		{
-			RenderTextOnScreen(meshList[GEO_TEXT], "Press E to diffuse the bomb", Color(0, 1, 0), 40, 180, 75);
-		}
-		RenderTextOnScreen(meshList[GEO_TEXT], "Objective:", Color(0, 1, 0), 40, 0, 45);
-		if (bomb_diffused == false)
-		{	
-			std::string temp("Diffuse the bomb in " + std::to_string(bomb_countdown));
-			RenderTextOnScreen(meshList[GEO_TEXT], temp.substr(0,22), Color(0, 1, 0), 40, 0, 5);
-			std::string temp1(std::to_string(bomb_countdown));
-			viewStack.PushMatrix();
-			modelStack.Translate(-4.2, 1, -4);
-			modelStack.Scale(0.1, 0.1, 0.1);
-			modelStack.Rotate(90,0, 1, 0);
-			RenderText(meshList[GEO_TEXT], "Time left", Color(0, 1, 0));
-				viewStack.PushMatrix();
-				modelStack.Translate(0, -1, 0);
-				RenderText(meshList[GEO_TEXT], temp1.substr(0, 4), Color(0, 1, 0));
-				viewStack.PopMatrix();
-			viewStack.PopMatrix();
-		}
-		//render win screen
-		if (condition == 1)
-		{
-			RenderMeshOnScreen(meshList[GEO_WIN], 400, 300, 80 , 60);
-		}
-		else if (condition == 2)
-		{
-			RenderMeshOnScreen(meshList[GEO_LOSE], 400, 300, 80, 60);
-		}
 	}
 }
 
